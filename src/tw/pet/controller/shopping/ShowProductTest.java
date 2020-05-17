@@ -37,7 +37,19 @@ public class ShowProductTest {
 	ServletContext context;
 	
 	@GetMapping(value = "/allProductNoImage", produces= {"application/json"} )
-	public ResponseEntity<List<ProductBeanImageData>> allProductNoImage() {
+	public ResponseEntity<List<ProductBean>> allProductNoImage() {
+//	public String test() {
+		System.out.println("進入controller");
+		System.out.println("test");
+		List<ProductBean> selectAll = dao.selectAll();
+		ResponseEntity<List<ProductBean>> re  = new ResponseEntity<>(selectAll, HttpStatus.OK);
+//		System.out.println(re);
+		
+		return re;
+	}
+	
+	@GetMapping(value = "/allProductWithImage", produces= {"application/json"} )
+	public ResponseEntity<List<ProductBeanImageData>> allProductWithImage() {
 //	public String test() {
 		System.out.println("進入controller");
 		System.out.println("test");

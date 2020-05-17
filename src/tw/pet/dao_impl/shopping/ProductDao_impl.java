@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import tw.pet.dao.ProductDao;
-import tw.pet.model.shopping.OrderBean;
+
 import tw.pet.model.shopping.ProductBean;
 import tw.pet.model.shopping.ProductBeanImageData;
 
@@ -57,6 +57,9 @@ public class ProductDao_impl implements ProductDao  {
 		return select;
 	}
 	
+
+		
+		
 	
 	@Override
 	public  List<ProductBean> selectAll(){
@@ -150,8 +153,10 @@ public class ProductDao_impl implements ProductDao  {
 		list = getSession().createQuery(hql).getResultList();
 		return  list;
 	}
-	@Override
 	
+	
+	@Override
+//	@SuppressWarnings("unchecked")
 	public List<ProductBeanImageData> getAllProductsImageDatas( ){
 		
 //		List<ProductBean> listSource2 = getSession().createQuery(hql).setParameter("id", categoryId).getResultList();
@@ -177,7 +182,23 @@ public class ProductDao_impl implements ProductDao  {
 		return listTarget;
 	}
 	
-	@Override
+	
+	
+	//由ID取得有照片的產品
+		@SuppressWarnings("unchecked")
+		@Override
+		public List<ProductBeanImageData> getAllProductsImageDatasByID(Integer productId){
+			String hql = "FROM ProductBean WHERE productId = :productId";
+			List<ProductBean> listSource = getSession().createQuery(hql).setParameter("id", productId).getResultList();
+			
+			List<ProductBeanImageData> listTarget=new ArrayList<>();
+			for(ProductBean bean:listSource) {
+				listTarget.add(addImageData(bean));
+			}
+			return listTarget;
+		}
+	
+	
 	public ProductBeanImageData addImageData(ProductBean bean) {
 		ProductBeanImageData pbid = null ;
 		try {

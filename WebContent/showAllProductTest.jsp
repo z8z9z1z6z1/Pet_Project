@@ -16,18 +16,32 @@ $(document).ready(function () {
 
 	$.ajax({
 	method: "GET",
-	url:"<c:url value='/allProductNoImage'/>", //請求的url地址
+	url:"<c:url value='/allProductWithImage'/>", //請求的url地址
 	dataType : "json", //返回格式為json
 	async : true, //請求是否非同步，預設為非同步，這也是ajax重要特性
+// 	contentType: 'application/json; charset=UTF-8',//好像是post方法才要
 	success:function(response){
 // 		var a= JSON.parse(response);
-		console.log(response[1].bean);
-		console.log(response[1].imageData);
+		console.log(response[0].imageData);
+		$("#test2").empty();
+		var $table = $('<table border="1">')
+		.appendTo($('#test2'))
+		.append("<tr><th>編號</th><th>名字</th><th>價格</th><th>描述</th><th>檔案名字</th><th>圖片</th></tr>");
+		$("#test2").append($table)
+		$.each(response,
+			function(index,element){
+			$('<tr>').appendTo($table)
+			.append($('<td align="center">').text(element.bean.productId))
+			.append($('<td>').text(element.bean.name))
+			.append($('<td align="right">').text(element.bean.price))
+			.append($('<td>').text(element.bean.descriptrion))
+			.append($('<td>').text(element.bean.fileName))
+			.append("<td><img src='" + element.imageData + " ' '></td>");
+		})
+		
+// 		$("#test2").html("<img src="+response[1].imageData +" />");
 // 			$("#test2").html("<img src="+response[1].imageData +"/>");
 
-// 		for (var i = 0 ; i < response.length;i++){
-// // 			alert("name=" + response[i].name + "price=" +response[i].price); 
-// 			}
 	}
 	});
 	
@@ -50,7 +64,7 @@ $(document).ready(function () {
 // 				var content ="123";
 // 				console.log(content);
 // 				var Product =JSON.parse(xhr.responseText);
-// 				console.log(Product)
+// 				console.log(Product[0])
 				
 // 			}
 // 		}

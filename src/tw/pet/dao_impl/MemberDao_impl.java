@@ -24,7 +24,7 @@ public class MemberDao_impl {
 //	}
 
 	public Session getSession() {
-		Session session = sessionFactory.getCurrentSession();
+		session = sessionFactory.getCurrentSession();
 		return session;
 	}
 

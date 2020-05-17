@@ -38,8 +38,10 @@ public interface ProductDao {
 	//取得有照片的產品
 	List<ProductBeanImageData> getAllProductsImageDatasByCategory(Integer categoryId);
 
-	ProductBeanImageData addImageData(ProductBean bean);
+	
 
 	List<ProductBeanImageData> getAllProductsImageDatas();
+
+	List<ProductBeanImageData> getAllProductsImageDatasByID(Integer productId);
 
 }
