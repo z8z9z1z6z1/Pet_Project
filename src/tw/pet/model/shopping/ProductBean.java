@@ -4,7 +4,7 @@ package tw.pet.model.shopping;
 
 import java.sql.Blob;
 import java.sql.Timestamp;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;

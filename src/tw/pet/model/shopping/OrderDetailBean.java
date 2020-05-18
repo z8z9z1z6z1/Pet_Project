@@ -11,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
 
 @Entity
 @Component
@@ -19,7 +19,7 @@ import javax.persistence.Transient;
 public class OrderDetailBean {
 	
 	private Integer seqno;
-	private Integer orderNo;
+	private Integer orderId;
 	private	Integer productId;
 	private String description;
 	private Integer quantity;
@@ -30,11 +30,11 @@ public class OrderDetailBean {
 		
 	}
 	
-	public OrderDetailBean(Integer seqno, Integer orderNo, Integer productId, String description, Integer quantity,
+	public OrderDetailBean( Integer productId, String description, Integer quantity,
 			Double unitPrice, Double discount) {
-		super();
-		this.seqno = seqno;
-		this.orderNo = orderNo;
+		
+	
+	
 		this.productId = productId;
 		this.description = description;
 		this.quantity = quantity;
@@ -49,12 +49,12 @@ public class OrderDetailBean {
 	public void setSeqno(Integer seqno) {
 		this.seqno = seqno;
 	}
-	@Column(name = "orderNo")
-	public Integer getOrderNo() {
-		return orderNo;
+	@Column(name = "orderId")
+	public Integer getOorderId() {
+		return orderId;
 	}
-	public void setOrderNo(Integer orderNo) {
-		this.orderNo = orderNo;
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
 	}
 	@Column(name = "productId")
 	public Integer getProductId() {

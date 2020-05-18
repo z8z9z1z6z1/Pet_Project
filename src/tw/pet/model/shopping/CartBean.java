@@ -1,7 +1,7 @@
 package tw.pet.model.shopping;
 
 import java.util.LinkedHashMap;
-import java.util.List;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CartBean {
-	private Map<Integer, OrderDetailBean> cart = new LinkedHashMap< >();
+	private Map<Integer, OrderItemBean> cart = new LinkedHashMap< >();
 	public CartBean() {
 	}
-	public Map<Integer, OrderDetailBean>  getContent() { // ${ShoppingCart.content}
+	public Map<Integer, OrderItemBean>  getContent() { // ${ShoppingCart.content}
 		return cart;
 	}
-	public void addToCart(int productId, OrderDetailBean  od) {
+	public void addToCart(int productId, OrderItemBean  od) {
 		if (od.getQuantity() <= 0 ) {
 			return;
 		}
@@ -24,7 +24,7 @@ public class CartBean {
 		    cart.put(productId, od);
 		} else {
 	        // 如果客戶在伺服器端已有此項商品的資料，則客戶『加購』此項商品
-			OrderDetailBean oib = cart.get(productId);
+			OrderItemBean oib = cart.get(productId);
 			// 加購的數量：oi.getQty()
 			// 原有的數量：oib.getQty()			
 			oib.setQuantity(od.getQuantity() + oib.getQuantity());
@@ -33,7 +33,7 @@ public class CartBean {
 
 	public boolean modifyQty(int productId, int  newQuantity) {
 		if ( cart.get(productId) != null ) {
-			OrderDetailBean  oi = cart.get(productId);
+			OrderItemBean  oi = cart.get(productId);
 		   oi.setQuantity(newQuantity);
 	       //cart.put(bookID, oi);
 	       return true;

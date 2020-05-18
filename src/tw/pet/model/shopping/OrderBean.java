@@ -1,6 +1,6 @@
 package tw.pet.model.shopping;
 
-import java.util.Date;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +19,7 @@ import javax.persistence.Transient;
 public class OrderBean {
 	private Integer orderId;
 	private Integer memberId;
-	private Double totalAmount;
+	private Double totalAmount;//總金額  之後要改名字  沒改好
 	private String shippingAddress;
 	private String orderDate;
 	private String state ;	//訂單狀態 //用來放入此訂單屬於哪個會員    
@@ -29,15 +29,16 @@ public class OrderBean {
 	
 	
 	
-	public OrderBean(Integer orderId, Integer memberId, Double totalAmount, String shippingAddress, String orderDate,
-			Set<OrderDetailBean> orderDetail) {
+	public OrderBean( Integer memberId, Double totalAmount, String shippingAddress, String orderDate,
+			Set<OrderDetailBean> orderDetail ,String state) {
 		super();
-		this.orderId = orderId;
+		
 		this.memberId = memberId;
 		this.totalAmount = totalAmount;
 		this.shippingAddress = shippingAddress;
 		this.orderDate = orderDate;
 		this.orderDetail = orderDetail;
+		this.state=state;
 	}
 	public OrderBean() {
 	}

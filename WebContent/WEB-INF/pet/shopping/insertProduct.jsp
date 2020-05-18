@@ -5,7 +5,7 @@
 <%@ taglib prefix='form' uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-<meta charset="BIG5">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>

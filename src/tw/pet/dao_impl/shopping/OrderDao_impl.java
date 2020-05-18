@@ -19,27 +19,31 @@ import tw.pet.model.shopping.OrderBean;
 //3.查詢orders表格內的所有訂單
 
 @Repository
-public class OrderDao_impl {
+public class OrderDao_impl implements OrderDao {
 	@Autowired
 	@Qualifier(value = "sessionFactory")
 	private SessionFactory sessionFactory;
 
+	@Override
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 	
+	@Override
 	public Session s() {
 		return sessionFactory.getCurrentSession();
 	}
 
 	// 查詢訂單 利用訂單編號OrderId
-	public OrderBean selectOrder(int OrderId) {
-		OrderBean select = getSession().get(OrderBean.class, OrderId);
+	@Override
+	public OrderBean selectOrder(int orderId) {
+		OrderBean select = getSession().get(OrderBean.class, orderId);
 
 		return select;
 	}
 	
 	//查詢所有訂單
+	@Override
 	public List<OrderBean> selectAllOrder(){
 		Query<OrderBean> selectAllOrder = getSession().createQuery("from OrderBean",OrderBean.class);
 				
@@ -48,6 +52,7 @@ public class OrderDao_impl {
 	
 	
 	//查詢訂單 依照單一時間
+	@Override
 	public List<OrderBean> selectOrderByTime(String time){
 		String hql="from OrderBean where orderDate:=time";
 		Query<OrderBean> createQuery = s().createQuery(hql,OrderBean.class);
@@ -57,6 +62,7 @@ public class OrderDao_impl {
 	
 
 	// 取消訂單
+	@Override
 	public String cancel(int orderId) {
 		String hql = "from OrderBean where state = 成立  and orderId:=orderId";
 		Query<OrderBean> createQuery = getSession().createQuery(hql, OrderBean.class);
@@ -71,6 +77,7 @@ public class OrderDao_impl {
 	}
 
 	// 更新訂單狀態→完成
+	@Override
 	public String complete(int orderId) {
 		String hql = "from OrderBean where state = 成立  and orderId:=orderId";
 		Query<OrderBean> createQuery = getSession().createQuery(hql, OrderBean.class);
@@ -85,6 +92,7 @@ public class OrderDao_impl {
 	}
 
 	// 更新訂單狀態→逾時
+	@Override
 	public String overtime(int orderId) {
 		String hql = "from OrderBean where state = 成立  and orderId:=orderId";
 		Query<OrderBean> createQuery = getSession().createQuery(hql, OrderBean.class);
@@ -99,7 +107,8 @@ public class OrderDao_impl {
 	}
 	
 	//新增訂單
-	public String NewOrder(OrderBean ob) {
+	@Override
+	public String insert(OrderBean ob) {
 		OrderBean orderBean = getSession().get(OrderBean.class, ob.getOrderId());
 		if(orderBean==null) {
 			getSession().save(orderBean);
@@ -110,6 +119,7 @@ public class OrderDao_impl {
 	}
 	
 	//取得訂單總數
+	@Override
 	public long selectOrderByCount(Integer memberId) {
 		long count=0;
 		String hql ="select count(*) from OrderBean where memberId:=memberId";
@@ -123,6 +133,7 @@ public class OrderDao_impl {
 		return count;
 	}
 	
+	@Override
 	@SuppressWarnings("unchecked") //使用 @SuppressWarnings 來排除警告
 	public List<OrderBean> getAllOrderJson()  {
 		List<OrderBean> list = new ArrayList<>();
