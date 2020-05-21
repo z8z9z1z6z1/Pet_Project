@@ -1,6 +1,7 @@
 package tw.pet.controller.shopping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,8 @@ public class AbortController {
 	
 	@GetMapping("/abortBuy")
 	public String abortBuy(Model m,HttpServletRequest request) {
-		CartBean cart = (CartBean) request.getAttribute("cart");
+		HttpSession session = request.getSession();
+		CartBean cart = (CartBean) session.getAttribute("cart");
 		if(cart==null) {
 			System.out.println("無購物車商品");
 			return "showProduct";
