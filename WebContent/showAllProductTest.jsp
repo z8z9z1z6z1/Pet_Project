@@ -13,13 +13,14 @@
 $(document).ready(function () {
 	 $("#test").click(function(){
 // 		 alert("123");
-
+	
 	$.ajax({
 	method: "GET",
 	url:"<c:url value='/allProductWithImage'/>", //請求的url地址
 	dataType : "json", //返回格式為json
 	async : true, //請求是否非同步，預設為非同步，這也是ajax重要特性
 // 	contentType: 'application/json; charset=UTF-8',//好像是post方法才要
+	
 	success:function(response){
 // 		var a= JSON.parse(response);
 		console.log(response[0].imageData);

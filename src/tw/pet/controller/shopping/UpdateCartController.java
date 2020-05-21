@@ -1,5 +1,8 @@
 package tw.pet.controller.shopping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +17,9 @@ public class UpdateCartController {
 	SessionFactory sessionFactory;
 	
 		@PostMapping("/UpateProduct")
-		public String UpateProduct(Model m) {
-			CartBean cart = (CartBean) m.getAttribute("cart");
+		public String UpateProduct(Model m ,HttpServletRequest request) {
+			HttpSession session = request.getSession();
+			CartBean cart = (CartBean) session.getAttribute("cart");
 			// 如果找不到購物車，沒有必要往下執行
 			if(cart==null) {
 				return "showProduct";

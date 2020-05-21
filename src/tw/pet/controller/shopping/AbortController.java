@@ -1,5 +1,7 @@
 package tw.pet.controller.shopping;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +16,13 @@ public class AbortController {
 	SessionFactory	 sessionFactory;
 	
 	@GetMapping("/abortBuy")
-	public String abortBuy(Model m) {
-		CartBean cart = (CartBean) m.getAttribute("cart");
+	public String abortBuy(Model m,HttpServletRequest request) {
+		CartBean cart = (CartBean) request.getAttribute("cart");
 		if(cart==null) {
+			System.out.println("無購物車商品");
 			return "showProduct";
 		}
-		cart=null;
-		m.addAttribute("cart",cart);
+		request.removeAttribute("cart");
 		return "showProduct";
 	}
 	

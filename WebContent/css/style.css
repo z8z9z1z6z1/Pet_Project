@@ -79,6 +79,22 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #d1c286;
 }
 
+.icon-block {
+	padding: 0 15px;
+}
+
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+.material-icons.md-dark {
+	color: rgba(0, 0, 0, 0.54);
+}
+
+.tab.md-dark {
+	color: rgba(0, 0, 0, 0.54);
+}
+
 ::selection {
   color: #fff;
   background: #d1c286;

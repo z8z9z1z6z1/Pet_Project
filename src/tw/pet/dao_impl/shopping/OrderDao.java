@@ -38,5 +38,7 @@ public interface OrderDao {
 	List<OrderBean> getAllOrderJson();
 
 	String insert(OrderBean ob);
+	//會員查詢自己的訂單
+	List<OrderBean> selectOrderByMemberId(Integer memberId);
 
 }

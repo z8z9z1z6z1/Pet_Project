@@ -1,17 +1,20 @@
 package tw.pet.controller.shopping;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
-
+import org.springframework.web.bind.annotation.PostMapping;
 
 import tw.pet.dao_impl.shopping.OrderDao;
 import tw.pet.model.PetMembers;
@@ -27,15 +30,17 @@ public class ProcessCartController {
 	@Autowired
 	OrderDao orderDao;
 	
-	public String OrderConfirm(Model m) {
-		PetMembers members= (PetMembers) m.getAttribute("LoginOk");
+	@PostMapping("訂單確認")
+	public String OrderConfirm(Model m ,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		PetMembers members= (PetMembers) session.getAttribute("LoginOk");
 		//最終決定
-		 String finalDecision= (String) m.getAttribute("finalDecision");
+		 String finalDecision= (String) session.getAttribute("finalDecision");
 		if(members==null) {
 			//沒有登入
 			return "index";
 		}
-		CartBean cart =  (CartBean) m.getAttribute("cart");
+		CartBean cart =  (CartBean) session.getAttribute("cart");
 		if(cart==null) {
 			// 處理訂單時如果找不到購物車，沒有必要往下執行
 						// 導向首頁
@@ -43,7 +48,7 @@ public class ProcessCartController {
 		}
 	
 		if(finalDecision.equalsIgnoreCase("CANCEL")) {
-			cart=null;
+			session.removeAttribute("cart");
 			return"showProduct";
 		}
 		Integer memberId =members.getMemberId();

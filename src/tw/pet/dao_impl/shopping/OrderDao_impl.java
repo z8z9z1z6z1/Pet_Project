@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-
+import tw.pet.controller.shopping.SelectOrderByMemberId;
 import tw.pet.model.shopping.OrderBean;
 
 //本類別
@@ -32,6 +32,14 @@ public class OrderDao_impl implements OrderDao {
 	@Override
 	public Session s() {
 		return sessionFactory.getCurrentSession();
+	}
+	
+	//會員查詢自己的訂單
+	@Override
+	public List<OrderBean> selectOrderByMemberId(Integer memberId){
+		String hql = "from OrderBean where memberId=:memberId";
+		List<OrderBean> resultList = getSession().createQuery(hql,OrderBean.class).getResultList();
+		return resultList;
 	}
 
 	// 查詢訂單 利用訂單編號OrderId
@@ -117,6 +125,8 @@ public class OrderDao_impl implements OrderDao {
 			return "訂單新增失敗";
 		}
 	}
+	
+	
 	
 	//取得訂單總數
 	@Override

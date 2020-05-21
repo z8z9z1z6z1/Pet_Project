@@ -1,5 +1,10 @@
 package tw.pet.controller.shopping;
 
+import java.net.http.HttpRequest;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +22,12 @@ public class CartOrderDetail {
 	OrderDao orderDao;
 	
 	@PostMapping(value = "addOrderBean")
-	public  String addOrderBean(Model m) {
+	public  String addOrderBean(Model m ,HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		Integer orderId = (Integer)m.getAttribute("orderId");
 		OrderBean ob = orderDao.selectOrder(orderId);
-		m.addAttribute("OrderBean", ob);// 將OrderBean物件暫存到請求物件內
+		
+		session.setAttribute("OrderBean", ob);// 將OrderBean物件暫存到請求物件內
 		System.out.println("測試  查看訂單="+ob);
 		return "showOrderDetail";
 	}

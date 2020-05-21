@@ -50,7 +50,7 @@ public class OrderDetailBean {
 		this.seqno = seqno;
 	}
 	@Column(name = "orderId")
-	public Integer getOorderId() {
+	public Integer getOrderId() {
 		return orderId;
 	}
 	public void setOrderId(Integer orderId) {

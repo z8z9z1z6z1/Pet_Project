@@ -3,6 +3,7 @@ package tw.pet.controller.shopping;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,19 +30,20 @@ public class BuyCartController {
 	}
 	
 	@PostMapping(value = "/addProductToCart")
-	public void addProductToCart(Model m){
+	public void addProductToCart(Model m,HttpServletRequest request){
 		// 取出存放在session物件內的ShoppingCart物件
-		CartBean cart = (CartBean)m.getAttribute("cart");
+		HttpSession session = request.getSession();
+		CartBean cart = (CartBean)session.getAttribute("cart");
 		if(cart==null) {
 			 cart=new CartBean( );      
-	            m.addAttribute("cart", cart);
+			 session.setAttribute("cart", cart);
 		}
-		Integer  productId =(Integer) m.getAttribute("productId");
-		String name=(String)m.getAttribute("name");
+		Integer  productId =(Integer) request.getAttribute("productId");
+		String name=(String)request.getAttribute("name");
 //		String quantityStr=(String)m.getAttribute("quantity");
-		Integer quantity=(Integer)m.getAttribute("quantity");
-		Double unitPrice=(Double)m.getAttribute("unitPrice");
-		Double discount=(Double)m.getAttribute("discount");
+		Integer quantity=(Integer)request.getAttribute("quantity");
+		Double unitPrice=(Double)request.getAttribute("unitPrice");
+		Double discount=(Double)request.getAttribute("discount");
 		//新增一筆訂單明細
 		//每一個訂單有複數個訂單明細
 		OrderItemBean oItemBean =

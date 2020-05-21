@@ -78,16 +78,16 @@ public class SpringMVCjavaConfig implements WebMvcConfigurer {
 		return viewResolver;
 	}
 
-		//自定義資源對映
-	@Override 
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/resources/petImage/");
-		registry.addResourceHandler("/fragment/topcss/css/**").addResourceLocations("/WEB-INF/pet/fragment/topcss/css/");
-
-		//		WebMvcConfigurer.super.addResourceHandlers(registry);
-		//通過addResourceHandler新增對映路徑，然後通過addResourceLocations來指定路徑。
-	}
-	
+//		//自定義資源對映
+//	@Override 
+//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//		registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/resources/petImage/");
+//		registry.addResourceHandler("/fragment/topcss/css/**").addResourceLocations("/WEB-INF/pet/fragment/topcss/css/");
+//
+//		//		WebMvcConfigurer.super.addResourceHandlers(registry);
+//		//通過addResourceHandler新增對映路徑，然後通過addResourceLocations來指定路徑。
+//	}
+//	
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {

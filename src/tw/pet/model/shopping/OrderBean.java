@@ -31,7 +31,7 @@ public class OrderBean {
 	
 	public OrderBean( Integer memberId, Double totalAmount, String shippingAddress, String orderDate,
 			Set<OrderDetailBean> orderDetail ,String state) {
-		super();
+		
 		
 		this.memberId = memberId;
 		this.totalAmount = totalAmount;
