@@ -148,17 +148,18 @@
 						<div align="center">
 							<h3>Get In Touch</h3>
 						</div>
+						<c:forEach var="product" items="${productList}">
 						<div class="col-md-3 text-center animate-box">
 
 							<div class="product ">
 								<div class="product-grid ">
 									<div class="card ">
-										<img class="card-img-top"
-											src="data:image/jpg;base64,${product.getBiPhoto()}"
-											alt="Card image cap">
+<!-- 										<img class="card-img-top" -->
+<%-- 											src="data:image/jpg;base64,${product.getBiPhoto()}" --%>
+<!-- 											alt="Card image cap"> -->
 										<div class="card-body">
-											<h5 class="card-title">${product.name}</h5>
-											<p class="card-text">${product.getDescription()}</p>
+											<h5 class="card-title">${product.getName()}</h5>
+											<p class="card-text">${product.getDescriptrion()}</p>
 
 										</div>
 										<div class="card-footer ">
@@ -170,7 +171,7 @@
 								</div>
 							</div>
 						</div>
-
+						</c:forEach>
 					</div>
 				</div>
 
@@ -275,27 +276,7 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 
-<!-- 	<!-- jQuery --> -->
-<!-- 	<script src="js/jquery.min.js"></script> -->
-<!-- 	<!-- jQuery Easing --> -->
-<!-- 	<script src="js/jquery.easing.1.3.js"></script> -->
-<!-- 	<!-- Bootstrap --> -->
-<!-- 	<script src="js/bootstrap.min.js"></script> -->
-<!-- 	<!-- Waypoints --> -->
-<!-- 	<script src="js/jquery.waypoints.min.js"></script> -->
-<!-- 	<!-- Carousel --> -->
-<!-- 	<script src="js/owl.carousel.min.js"></script> -->
-<!-- 	<!-- countTo --> -->
-<!-- 	<script src="js/jquery.countTo.js"></script> -->
-<!-- 	<!-- Flexslider --> -->
-<!-- 	<script src="js/jquery.flexslider-min.js"></script> -->
-<!-- 	<!-- Google Map --> -->
-<!-- 	<script -->
-<!-- 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script> -->
-<!-- 	<script src="js/google_map.js"></script> -->
 
-<!-- 	<!-- Main --> -->
-<!-- 	<script src="js/main.js"></script> -->
 
 </body>
 </html>

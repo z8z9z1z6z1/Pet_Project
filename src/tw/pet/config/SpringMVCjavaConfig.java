@@ -54,6 +54,7 @@ public class SpringMVCjavaConfig implements WebMvcConfigurer {
 	@Autowired
 	SessionFactory sessionFactory;
 
+	//分派器如果找不到資源(css, 圖檔等等)會交給此default方法來找這些資源
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		//Default:默認
@@ -114,6 +115,8 @@ public class SpringMVCjavaConfig implements WebMvcConfigurer {
 		messageSource.setBasenames("MemberMessage", "ValidationMessages");
 		return messageSource;
 	}
+	
+	  
 	
 	
 	

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.hibernate.SessionFactory;
@@ -14,9 +15,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 import tw.pet.dao.ProductDao;
 import tw.pet.model.shopping.ProductBean;
 import tw.pet.model.shopping.ProductBeanImageData;
+import tw.pet.service.ShowProductService;
 
 @Controller
 public class ShowProductTest {
@@ -32,6 +37,8 @@ public class ShowProductTest {
 	SessionFactory session;
 	@Autowired
 	ProductDao dao;
+	@Autowired
+	ShowProductService ShowProductService;
 	
 	@Autowired
 	ServletContext context;
@@ -67,6 +74,19 @@ public class ShowProductTest {
 //		return re;
 //	}
 
+		@PostMapping("/showProductByCategory")
+		public String showProductByCategory(Model m,HttpServletRequest request, Integer id ) {
+//			Integer categoryId  =(Integer) request.getAttribute("categoryId");
+//			String a = "1";
+//			Integer hid = Integer.valueOf(a);
+////			List<ProductBeanImageData> list = dao.getAllProductsImageDatas();
+////			ResponseEntity<List<ProductBeanImageData>> re = new ResponseEntity<List<ProductBeanImageData>>(list, HttpStatus.OK);
+//			List<ProductBean> list = dao.getAllProductsJson();
+//			m.addAttribute("productList", list);
+////			System.out.println("categoryId="+categoryId);
+//			System.out.println("list"+list);
+			return "showProduct";
+		}
 	
 	
 	

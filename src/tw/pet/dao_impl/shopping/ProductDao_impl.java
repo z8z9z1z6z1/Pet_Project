@@ -169,11 +169,12 @@ public class ProductDao_impl implements ProductDao  {
 	}
 	
 	//由分類取得有照片的產品
+//	@SuppressWarnings("unchecked")
 	@Override
-	@SuppressWarnings("unchecked")
-	public List<ProductBeanImageData> getAllProductsImageDatasByCategory(Integer categoryId){
-		String hql = "FROM ProductBean WHERE categoryId = :categoryId";
-		List<ProductBean> listSource = getSession().createQuery(hql).setParameter("id", categoryId).getResultList();
+	public List<ProductBeanImageData> getAllProductsImageDatasByCategory(int id){
+		String hql = "FROM ProductBean WHERE categoryId = :id";
+		System.out.println("categoryId="+id);
+	 List<ProductBean> listSource = getSession().createQuery(hql).setParameter("id", id).getResultList();
 		
 		List<ProductBeanImageData> listTarget=new ArrayList<>();
 		for(ProductBean bean:listSource) {
@@ -188,7 +189,7 @@ public class ProductDao_impl implements ProductDao  {
 		@SuppressWarnings("unchecked")
 		@Override
 		public List<ProductBeanImageData> getAllProductsImageDatasByID(Integer productId){
-			String hql = "FROM ProductBean WHERE productId = :productId";
+			String hql = "FROM ProductBean WHERE productId =:productId";
 			List<ProductBean> listSource = getSession().createQuery(hql).setParameter("id", productId).getResultList();
 			
 			List<ProductBeanImageData> listTarget=new ArrayList<>();

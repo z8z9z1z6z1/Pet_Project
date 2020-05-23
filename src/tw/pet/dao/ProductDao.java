@@ -36,7 +36,7 @@ public interface ProductDao {
 	List<ProductBean> getAllProductsJson();
 
 	//取得有照片的產品
-	List<ProductBeanImageData> getAllProductsImageDatasByCategory(Integer categoryId);
+	List<ProductBeanImageData> getAllProductsImageDatasByCategory(int categoryId);
 
 	
 
