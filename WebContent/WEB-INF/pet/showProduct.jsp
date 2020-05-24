@@ -18,7 +18,6 @@
 
 <!-- 
 	//////////////////////////////////////////////////////
-
 	FREE HTML5 TEMPLATE 
 	DESIGNED & DEVELOPED by FreeHTML5.co
 		
@@ -26,7 +25,6 @@
 	Email: 			info@freehtml5.co
 	Twitter: 		http://twitter.com/fh5co
 	Facebook: 		https://www.facebook.com/fh5co
-
 	//////////////////////////////////////////////////////
 	 -->
 
@@ -42,49 +40,49 @@
 <meta name="twitter:card" content="" />
 <!-- Animate.css -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/animate.css">
+	href="${pageContext.request.contextPath}/shopCss/animate.css">
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/icomoon.css">
+	href="${pageContext.request.contextPath}/shopCss/icomoon.css">
 <!-- Bootstrap  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/bootstrap.css">
+	href="${pageContext.request.contextPath}/shopCss/bootstrap.css">
 
 <!-- Flexslider  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/flexslider.css">
+	href="${pageContext.request.contextPath}/shopCss/flexslider.css">
 
 
 <!-- Owl Carousel  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
+	href="${pageContext.request.contextPath}/shopCss/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/owl.theme.default.min.css">
+	href="${pageContext.request.contextPath}/shopCss/owl.theme.default.min.css">
 
 <!-- Theme style  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+	href="${pageContext.request.contextPath}/shopCss/style.css">
 
 <!-- Modernizr JS -->
 <script
-	src="${pageContext.request.contextPath}/js/modernizr-2.6.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-1.12.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-3.4.1.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/modernizr-2.6.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery-1.12.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery-3.4.1.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/bootstrap.min.js"></script>
 <!-- Waypoints -->
 <script
-	src="${pageContext.request.contextPath}/js/jquery.waypoints.min.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/jquery.waypoints.min.js"></script>
 <!-- Carousel -->
-<script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/owl.carousel.min.js"></script>
 <!-- countTo -->
-<script src="${pageContext.request.contextPath}/js/jquery.countTo.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery.countTo.js"></script>
 <!-- Flexslider -->
 <script
-	src="${pageContext.request.contextPath}/js/jquery.flexslider-min.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/jquery.flexslider-min.js"></script>
 <!-- Main -->
-<script src="${pageContext.request.contextPath}/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/main.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -100,7 +98,7 @@
 		<!-- ------------------------------------------------------------------------------------------------------- -->
 
 		<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm"
-			role="banner" style="background-image: url(images/img_bg_2.jpg);">
+			role="banner" style="background-image: url(images/shopping.jpg);">
 			<div class="overlay"></div>
 
 
@@ -110,11 +108,8 @@
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<div class="display-t">
 							<div class="display-tc animate-box" data-animate-effect="fadeIn">
-								<h1>Contact Us</h1>
-								<h2>
-									Free html5 templates Made by <a href="http://freehtml5.co"
-										target="_blank">freehtml5.co</a>
-								</h2>
+<!-- 								<i class="icon-shopping-cart"></i> -->
+								
 							</div>
 						</div>
 					</div>
@@ -163,8 +158,13 @@
 
 										</div>
 										<div class="card-footer ">
-											<a href="#" class="btn btn-primary">加入最愛</a> <br> <a
-												href="#" class="btn btn-primary">加入購物</a>
+											<a href="#" class="btn btn-primary">加入最愛</a> <br> 
+											<form action="" method="post" enctype="multipart/form-data">
+												<input type="submit" class="btn btn-primary" value="加入購物">
+												<input type="hidden" name=productName value="${product.getName()}">
+												<input type="hidden" name=price value="${product.getPrice()}">
+												<input type="hidden" name=price value="${product.getDescriptrion()}">
+											</form>	
 										</div>
 
 									</div>
@@ -280,4 +280,3 @@
 
 </body>
 </html>
-

@@ -21,49 +21,49 @@
 
 <!-- Animate.css -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/animate.css">
+	href="${pageContext.request.contextPath}/shopCss/animate.css">
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/icomoon.css">
+	href="${pageContext.request.contextPath}/shopCss/icomoon.css">
 <!-- Bootstrap  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/bootstrap.css">
+	href="${pageContext.request.contextPath}/shopCss/bootstrap.css">
 
 <!-- Flexslider  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/flexslider.css">
+	href="${pageContext.request.contextPath}/shopCss/flexslider.css">
 
 
 <!-- Owl Carousel  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
+	href="${pageContext.request.contextPath}/shopCss/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/owl.theme.default.min.css">
+	href="${pageContext.request.contextPath}/shopCss/owl.theme.default.min.css">
 
 <!-- Theme style  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+	href="${pageContext.request.contextPath}/shopCss/style.css">
 
 <!-- Modernizr JS -->
 <script
-	src="${pageContext.request.contextPath}/js/modernizr-2.6.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-1.12.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-3.4.1.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/modernizr-2.6.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery-1.12.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery-3.4.1.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/bootstrap.min.js"></script>
 <!-- Waypoints -->
 <script
-	src="${pageContext.request.contextPath}/js/jquery.waypoints.min.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/jquery.waypoints.min.js"></script>
 <!-- Carousel -->
-<script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/owl.carousel.min.js"></script>
 <!-- countTo -->
-<script src="${pageContext.request.contextPath}/js/jquery.countTo.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery.countTo.js"></script>
 <!-- Flexslider -->
 <script
-	src="${pageContext.request.contextPath}/js/jquery.flexslider-min.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/jquery.flexslider-min.js"></script>
 <!-- Main -->
-<script src="${pageContext.request.contextPath}/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/main.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -98,6 +98,7 @@
 
 	<div id="page">
 		<jsp:include page="shopTop.jsp" />
+		
 		<!-- 		<nav class="fh5co-nav" role="navigation"> -->
 		<!-- 			<div class="container"> -->
 		<!-- 				<div class="row"> -->
@@ -147,17 +148,18 @@
 		<!-- 			</div> -->
 		<!-- 		</nav> -->
 
-		<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm"
+		<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm text-center"
 			role="banner" style="background-image: url(images/Cover2.jpg);">
-			<div class="overlay"></div>
+			<div class="overlay "></div>
 			<div class="container">
 				<div class="row">
 
 					<div class="col-md-8 col-md-offset-2 text-center">
+<!-- 			<input type="button" value="1111111111111111111111111111111111111111111111111111111"> -->
 
 						<div class="display-t">
 
-							<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<div class="display-tc animate-box " data-animate-effect="fadeIn">
 
 								<h1>shopping</h1>
 								<div>
@@ -290,6 +292,7 @@
 								mollitia reprehenderit. Eos cumque dicta adipisci architecto
 								culpa amet.</p>
 						</div>
+						
 						<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 							<ul class="fh5co-footer-links">
 								<li><a href="#">About</a></li>

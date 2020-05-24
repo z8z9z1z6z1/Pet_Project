@@ -42,49 +42,49 @@
 <meta name="twitter:card" content="" />
 <!-- Animate.css -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/animate.css">
+	href="${pageContext.request.contextPath}/shopCss/animate.css">
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/icomoon.css">
+	href="${pageContext.request.contextPath}/shopCss/icomoon.css">
 <!-- Bootstrap  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/bootstrap.css">
+	href="${pageContext.request.contextPath}/shopCss/bootstrap.css">
 
 <!-- Flexslider  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/flexslider.css">
+	href="${pageContext.request.contextPath}/shopCss/flexslider.css">
 
 
 <!-- Owl Carousel  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
+	href="${pageContext.request.contextPath}/shopCss/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/owl.theme.default.min.css">
+	href="${pageContext.request.contextPath}/shopCss/owl.theme.default.min.css">
 
 <!-- Theme style  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+	href="${pageContext.request.contextPath}/shopCss/style.css">
 
 <!-- Modernizr JS -->
 <script
-	src="${pageContext.request.contextPath}/js/modernizr-2.6.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-1.12.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-3.4.1.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/modernizr-2.6.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery-1.12.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery-3.4.1.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/bootstrap.min.js"></script>
 <!-- Waypoints -->
 <script
-	src="${pageContext.request.contextPath}/js/jquery.waypoints.min.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/jquery.waypoints.min.js"></script>
 <!-- Carousel -->
-<script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/owl.carousel.min.js"></script>
 <!-- countTo -->
-<script src="${pageContext.request.contextPath}/js/jquery.countTo.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/jquery.countTo.js"></script>
 <!-- Flexslider -->
 <script
-	src="${pageContext.request.contextPath}/js/jquery.flexslider-min.js"></script>
+	src="${pageContext.request.contextPath}/shopJs/jquery.flexslider-min.js"></script>
 <!-- Main -->
-<script src="${pageContext.request.contextPath}/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/shopJs/main.js"></script>
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -168,8 +168,9 @@
 
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
+			
 
 					</div>
 				</div>
