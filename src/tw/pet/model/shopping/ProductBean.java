@@ -3,8 +3,9 @@ package tw.pet.model.shopping;
 
 
 import java.sql.Blob;
+import java.sql.SQLException;
 import java.sql.Timestamp;
-
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -174,6 +175,16 @@ public class ProductBean {
 //	@XmlAttribute(name="biPhoto")
 	@Transient
 	public String getBiPhoto() {
+		int Length = 0;
+		byte[] AsBytes = null;
+		try {
+			Length = (int) this.coverImage.length();
+			AsBytes = this.coverImage.getBytes(1, Length);
+		} catch (SQLException e1) {
+			System.out.println("blob cannot tranfer to byte[]");
+			e1.printStackTrace();
+		}
+		String biPhoto =Base64.getEncoder().encodeToString(AsBytes);
 		return biPhoto;
 	}
 	public void setBiPhoto(String biPhoto) {

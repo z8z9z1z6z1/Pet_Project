@@ -26,6 +26,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.google.gson.Gson;
+import com.mchange.v2.cfg.PropertiesConfigSource.Parse;
+
+
 import tw.pet.dao.ProductDao;
 import tw.pet.model.shopping.ProductBean;
 import tw.pet.model.shopping.ProductBeanImageData;
@@ -76,15 +81,18 @@ public class ShowProductTest {
 
 		@PostMapping("/showProductByCategory")
 		public String showProductByCategory(Model m,HttpServletRequest request, Integer id ) {
-//			Integer categoryId  =(Integer) request.getAttribute("categoryId");
-//			String a = "1";
-//			Integer hid = Integer.valueOf(a);
-////			List<ProductBeanImageData> list = dao.getAllProductsImageDatas();
-////			ResponseEntity<List<ProductBeanImageData>> re = new ResponseEntity<List<ProductBeanImageData>>(list, HttpStatus.OK);
-//			List<ProductBean> list = dao.getAllProductsJson();
-//			m.addAttribute("productList", list);
-////			System.out.println("categoryId="+categoryId);
-//			System.out.println("list"+list);
+			Integer categoryId  =(Integer) request.getAttribute("categoryId");
+			String a = "1";
+			Integer hid = Integer.valueOf(a);
+//			List<ProductBeanImageData> list = dao.getAllProductsImageDatas();
+//			ResponseEntity<List<ProductBeanImageData>> re = new ResponseEntity<List<ProductBeanImageData>>(list, HttpStatus.OK);
+//			 List<ProductBeanImageData> list = dao.getAllProductsImageDatas();
+//			String json = new Gson().toJson(list);
+			List<ProductBean> list = dao.getAllProductsJson();
+			m.addAttribute("productList", list);
+//			System.out.println("categoryId="+categoryId);
+			System.out.println("list"+list);
+			System.out.println("list"+list.get(0).getBiPhoto());
 			return "showProduct";
 		}
 	

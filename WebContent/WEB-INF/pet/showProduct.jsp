@@ -154,9 +154,9 @@
 							<div class="product ">
 								<div class="product-grid ">
 									<div class="card ">
-<!-- 										<img class="card-img-top" -->
-<%-- 											src="data:image/jpg;base64,${product.getBiPhoto()}" --%>
-<!-- 											alt="Card image cap"> -->
+										<img class="card-img-top" style="width: 80%; height: 150px"
+											src="data:image/jpg;base64,${product.getBiPhoto()}"
+											alt="Card image cap">
 										<div class="card-body">
 											<h5 class="card-title">${product.getName()}</h5>
 											<p class="card-text">${product.getDescriptrion()}</p>
