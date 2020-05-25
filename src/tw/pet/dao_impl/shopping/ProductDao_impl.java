@@ -70,10 +70,12 @@ public class ProductDao_impl implements ProductDao  {
 	
 
 	@Override
-	public  List<ProductBean> selectCategory(int categoryId){
-		Query<ProductBean> selectCate = getSession().createQuery("from ProductBean  where categoryId=:categoryId",ProductBean.class);
-	
-		return selectCate.list();
+	public  List<ProductBean> selectCategory(Integer categoryId){
+		String newid = String.valueOf(categoryId);
+		String hql ="from ProductBean  where categoryId=:categoryId";
+		Query<ProductBean> selectCate = getSession().createQuery(hql,ProductBean.class);
+		selectCate.setParameter("categoryId", newid);
+		return selectCate.getResultList();
 	}
 	
 	//用銷售金額去選擇

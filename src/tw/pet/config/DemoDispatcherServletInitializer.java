@@ -16,7 +16,7 @@ public class DemoDispatcherServletInitializer extends AbstractAnnotationConfigDi
 //RootConfig :	 使用 Spring 來管理 UserService、AccountDAOJdbcImpl、MessageDAOJdbcImpl、DataSource 等元件之組合
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		System.out.println("使用getRootConfigClasses()方法");
+//		System.out.println("使用getRootConfigClasses()方法");
 		//new 為動態產生陣列  並且把元素放進去
 		//RootAppConfig.class 這樣寫表示他是一個物件 類似String.class int.class double.clss 都是物件
 		return new Class[] {RootAppConfig.class}; //沒有Root WebApplicationContext
@@ -24,21 +24,21 @@ public class DemoDispatcherServletInitializer extends AbstractAnnotationConfigDi
 	
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		System.out.println("使用getServletConfigClasses() 方法");
-		System.out.println("SpringMVCjavaConfig.class ="+SpringMVCjavaConfig.class);
+//		System.out.println("使用getServletConfigClasses() 方法");
+//		System.out.println("SpringMVCjavaConfig.class ="+SpringMVCjavaConfig.class);
 		return new Class[] {SpringMVCjavaConfig.class};
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		System.out.println("使用getServletMappings() 方法  並且回傳 new String[] {\"/\"}");
+//		System.out.println("使用getServletMappings() 方法  並且回傳 new String[] {\"/\"}");
 		//定義何種請求需要分配器
 		return new String[] {"/"};
 	}
 
 	@Override
 	protected Filter[] getServletFilters() {
-		System.out.println("使用getServletFilters()的方法去做編譯 回傳一個Filter[] 的陣列");
+//		System.out.println("使用getServletFilters()的方法去做編譯 回傳一個Filter[] 的陣列");
 		CharacterEncodingFilter charEncodeFilter = new CharacterEncodingFilter();
 		HiddenHttpMethodFilter  hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
 		charEncodeFilter.setEncoding("UTF-8");

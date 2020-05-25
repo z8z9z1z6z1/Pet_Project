@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Component
+//@Component
 @Table(name = "OrderDetail")
 public class OrderDetailBean {
 	

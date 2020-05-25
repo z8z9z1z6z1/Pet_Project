@@ -5,10 +5,10 @@
 
 <html>
 <head>
+<%-- <c:set var="id" value="${product.getProductId()}" /> --%>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Shop &mdash; Free Website Template, Free HTML5 Template
-	by gettemplates.co</title>
+<title>chose your best</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
 	content="Free HTML5 Website Template by gettemplates.co" />
@@ -46,7 +46,11 @@
 	href="${pageContext.request.contextPath}/shopCss/icomoon.css">
 <!-- Bootstrap  -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/shopCss/bootstrap.css">
+	href="${pageContext.request.contextPath}/shopCss/bootstrap2015.css">
+
+<!-- <link rel="stylesheet" -->
+<%-- 	href="${pageContext.request.contextPath}/shopCss/bootstrap2015.css"> --%>
+
 
 <!-- Flexslider  -->
 <link rel="stylesheet"
@@ -66,18 +70,22 @@
 <!-- Modernizr JS -->
 <script
 	src="${pageContext.request.contextPath}/shopJs/modernizr-2.6.2.min.js"></script>
-<script src="${pageContext.request.contextPath}/shopJs/jquery-1.12.2.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/shopJs/jquery-1.12.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/shopJs/jquery-3.4.1.js"></script>
-<script src="${pageContext.request.contextPath}/shopJs/jquery.easing.1.3.js"></script>
+<script
+	src="${pageContext.request.contextPath}/shopJs/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
 <script src="${pageContext.request.contextPath}/shopJs/bootstrap.min.js"></script>
 <!-- Waypoints -->
 <script
 	src="${pageContext.request.contextPath}/shopJs/jquery.waypoints.min.js"></script>
 <!-- Carousel -->
-<script src="${pageContext.request.contextPath}/shopJs/owl.carousel.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/shopJs/owl.carousel.min.js"></script>
 <!-- countTo -->
-<script src="${pageContext.request.contextPath}/shopJs/jquery.countTo.js"></script>
+<script
+	src="${pageContext.request.contextPath}/shopJs/jquery.countTo.js"></script>
 <!-- Flexslider -->
 <script
 	src="${pageContext.request.contextPath}/shopJs/jquery.flexslider-min.js"></script>
@@ -87,6 +95,7 @@
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
 </head>
 <body>
 
@@ -108,8 +117,8 @@
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<div class="display-t">
 							<div class="display-tc animate-box" data-animate-effect="fadeIn">
-<!-- 								<i class="icon-shopping-cart"></i> -->
-								
+								<!-- 								<i class="icon-shopping-cart"></i> -->
+
 							</div>
 						</div>
 					</div>
@@ -126,10 +135,10 @@
 					<div class="col-md-3 col-md-push-1 animate-box">
 
 						<div class="fh5co-contact-info">
-							<h3>Pet Product</h3>
+							<h3 id="PetProduct">Pet Product</h3>
 							<ul>
-								<li class="icon-cake"><a href="#" id='cate1' >寵物食品</a>
-								<form id="myform1" method="post" action="url"></form></li>
+								<li class="icon-cake"><a href="#" id='cate1'>寵物食品</a>
+									<form id="myform1" method="post" action="url"></form></li>
 								<li class="icon-image"><a href="#" id='cate2'>寵物衣服</a></li>
 								<li class="icon-game-controller"><a href="#" id='cate3'>寵物玩具</a></li>
 								<li class="icon-shopping-cart"><a href="#">購物車</a></li>
@@ -143,34 +152,40 @@
 						<div align="center">
 							<h3>Get In Touch</h3>
 						</div>
+
 						<c:forEach var="product" items="${productList}">
-						<div class="col-md-3 text-center animate-box">
+							<div class="col-md-3 text-center animate-box">
 
-							<div class="product ">
-								<div class="product-grid ">
-									<div class="card ">
-										<img class="card-img-top" style="width: 80%; height: 150px"
-											src="data:image/jpg;base64,${product.getBiPhoto()}"
-											alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">${product.getName()}</h5>
-											<p class="card-text">${product.getDescriptrion()}</p>
+								<div class="product ">
+									<div class="product-grid ">
+										<div class="card ">
+											<img class="card-img-top" style="width: 80%; height: 150px"
+												src="data:image/jpg;base64,${product.getBiPhoto()}"
+												alt="Card image cap">
+											<div class="card-body">
+												<h5 class="card-title">${product.getName()}</h5>
+												<p class="card-text">${product.getDescriptrion()}</p>
+												<p class="card-text">${product.getPrice()}</p>
+
+											</div>
+											<div class="card-footer ">
+												<input type="button" class="btn btn-primary" id='like${product.getProductId()}' value='加入最愛'> <br>
+												<form action="<c:url value='/addProductToCart'/>"  method="post" enctype="multipart/form-data">
+													<input type="submit" class="btn btn-primary" value="加入購物" id='test${product.getProductId()}'>
+													<Input type='hidden' name='productId' value='${product.getProductId()}'>
+													<Input type='hidden' name='name'
+														value='${product.getName()}'> 
+													<Input type='hidden' name='descriptrion'
+														value='${product.getDescriptrion()}'> <Input
+														type='hidden' name='discount' value='${product.getDiscount()}'>
+													<Input type='hidden' name='unitPrice' value='${product.getPrice()}'>
+												</form>
+											</div>
 
 										</div>
-										<div class="card-footer ">
-											<a href="#" class="btn btn-primary">加入最愛</a> <br> 
-											<form action="" method="post" enctype="multipart/form-data">
-												<input type="submit" class="btn btn-primary" value="加入購物">
-												<input type="hidden" name=productName value="${product.getName()}">
-												<input type="hidden" name=price value="${product.getPrice()}">
-												<input type="hidden" name=price value="${product.getDescriptrion()}">
-											</form>	
-										</div>
-
 									</div>
 								</div>
 							</div>
-						</div>
 						</c:forEach>
 					</div>
 				</div>
@@ -276,7 +291,20 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 
+<script type="text/javascript">
+$(document).ready(function () {
+// 	alert("123");
+$("cate1").click(function(){
+	alert("123");
+})
 
+$("like"+${product.getProductId()}").click(function(){
+	alert("123");
+})
+
+	
+})
+</script>
 
 </body>
 </html>

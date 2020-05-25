@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import tw.pet.model.shopping.OrderDetailBean;
-@Repository
+//@Repository
 public class OrderDetailDaoImpl {
 	SessionFactory sessionFactory;
 	

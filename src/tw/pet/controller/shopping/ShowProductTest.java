@@ -37,7 +37,7 @@ import tw.pet.model.shopping.ProductBeanImageData;
 import tw.pet.service.ShowProductService;
 
 @Controller
-public class ShowProductTest {
+public class  ShowProductTest{
 	@Autowired
 	SessionFactory session;
 	@Autowired
@@ -80,19 +80,14 @@ public class ShowProductTest {
 //	}
 
 		@PostMapping("/showProductByCategory")
-		public String showProductByCategory(Model m,HttpServletRequest request, Integer id ) {
-			Integer categoryId  =(Integer) request.getAttribute("categoryId");
-			String a = "1";
-			Integer hid = Integer.valueOf(a);
-//			List<ProductBeanImageData> list = dao.getAllProductsImageDatas();
-//			ResponseEntity<List<ProductBeanImageData>> re = new ResponseEntity<List<ProductBeanImageData>>(list, HttpStatus.OK);
-//			 List<ProductBeanImageData> list = dao.getAllProductsImageDatas();
-//			String json = new Gson().toJson(list);
-			List<ProductBean> list = dao.getAllProductsJson();
+		public String showProductByCategory(Model m,HttpServletRequest request,@RequestParam("categoryId") Integer categoryId ) {
+//			System.out.println("進categoryId_#showProductByCategory");
+//			System.out.println("傳入資料狀況:"+categoryId);	
+			List<ProductBean> list = dao.selectCategory(categoryId);
 			m.addAttribute("productList", list);
 //			System.out.println("categoryId="+categoryId);
-			System.out.println("list"+list);
-			System.out.println("list"+list.get(0).getBiPhoto());
+//			System.out.println("list"+list);
+//			System.out.println("list"+list.get(0).getBiPhoto());
 			return "showProduct";
 		}
 	

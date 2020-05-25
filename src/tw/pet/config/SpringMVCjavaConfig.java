@@ -61,16 +61,16 @@ public class SpringMVCjavaConfig implements WebMvcConfigurer {
 		//Handling:處理方式
 		//啟用config檔案
 		configurer.enable();
-		System.out.println("config檔案啟動");
+//		System.out.println("config檔案啟動");
 	}
 	
 	//@Bean放在方法 代表一個Bean元件的定義，方法名稱對應Bean的id屬性、方法
 	//回傳型別對應Bean的class屬性、Bean元件的相依關係對應方法與方法的呼叫
 	@Bean 
 	public InternalResourceViewResolver viewResolver() {
-		System.out.println("使用viewResolver() 方法  將網頁前面增加/WEB-INF/pet/");
-		System.out.println("網頁後面增加.jsp");
-		System.out.println("優先度為2，只低於DispatcherServletInitalizer");
+//		System.out.println("使用viewResolver() 方法  將網頁前面增加/WEB-INF/pet/");
+//		System.out.println("網頁後面增加.jsp");
+//		System.out.println("優先度為2，只低於DispatcherServletInitalizer");
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class); //預設就有  JSTL
 		viewResolver.setPrefix("/WEB-INF/pet/");

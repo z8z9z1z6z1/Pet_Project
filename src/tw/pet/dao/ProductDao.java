@@ -17,7 +17,7 @@ public interface ProductDao {
 
 	List<ProductBean> selectAll();
 
-	List<ProductBean> selectCategory(int categoryId);
+	List<ProductBean> selectCategory(Integer categoryId);
 
 	List<ProductBean> selectSales();
 

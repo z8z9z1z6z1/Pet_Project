@@ -34,7 +34,7 @@ public class RootAppConfig {
 		
 // ---------------------------------------------------------------------------------
 		ComboPooledDataSource ds = new ComboPooledDataSource();
-		System.out.println("sqlServerDataSource()");
+//		System.out.println("sqlServerDataSource()");
 		ds.setUser("sa");
 		ds.setPassword("sa123456");
 		try {
@@ -57,7 +57,7 @@ public class RootAppConfig {
 
 			factory.setDataSource(sqlServerDataSource());
 			factory.setHibernateProperties(additionalPropertiesMsSQL());
-	    System.out.println("factory"+factory);
+//	    System.out.println("factory"+factory);
 		return factory;
 	}
 	

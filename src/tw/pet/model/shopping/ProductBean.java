@@ -176,15 +176,16 @@ public class ProductBean {
 	@Transient
 	public String getBiPhoto() {
 		int Length = 0;
-		byte[] AsBytes = null;
+		byte[] Bytes = null;
 		try {
 			Length = (int) this.coverImage.length();
-			AsBytes = this.coverImage.getBytes(1, Length);
+			Bytes = this.coverImage.getBytes(1, Length);
+//			System.out.println("傳換陣列");
 		} catch (SQLException e1) {
-			System.out.println("blob cannot tranfer to byte[]");
 			e1.printStackTrace();
+//			System.out.println("無法轉換成陣列");
 		}
-		String biPhoto =Base64.getEncoder().encodeToString(AsBytes);
+		String biPhoto =Base64.getEncoder().encodeToString(Bytes);
 		return biPhoto;
 	}
 	public void setBiPhoto(String biPhoto) {

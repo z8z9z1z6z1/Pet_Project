@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import tw.pet.model.shopping.CartBean;
 import tw.pet.model.shopping.OrderDetailBean;
@@ -30,27 +31,36 @@ public class BuyCartController {
 	}
 	
 	@PostMapping(value = "/addProductToCart")
-	public void addProductToCart(Model m,HttpServletRequest request){
+	public String addProductToCart(Model m,
+			@RequestParam("productId") Integer  productId,
+			@RequestParam("name") String  name,
+			@RequestParam("unitPrice")Double unitPrice,
+			@RequestParam("discount")Double discount,			
+			HttpServletRequest request){
 		// 取出存放在session物件內的ShoppingCart物件
-		HttpSession session = request.getSession();
+		System.out.println("進入/addProductToCart");
+		HttpSession session = request.getSession(false);
 		CartBean cart = (CartBean)session.getAttribute("cart");
 		if(cart==null) {
 			 cart=new CartBean( );      
 			 session.setAttribute("cart", cart);
 		}
-		Integer  productId =(Integer) request.getAttribute("productId");
-		String name=(String)request.getAttribute("name");
+//		Integer  productId =(Integer) m.getAttribute("productId");
+//		String name=(String)m.getAttribute("name");
 //		String quantityStr=(String)m.getAttribute("quantity");
-		Integer quantity=(Integer)request.getAttribute("quantity");
-		Double unitPrice=(Double)request.getAttribute("unitPrice");
-		Double discount=(Double)request.getAttribute("discount");
+		Integer quantity=(Integer)m.getAttribute("quantity");
+//		Double unitPrice=(Double)m.getAttribute("unitPrice");
+//		Double discount=(Double)m.getAttribute("discount");
+		System.out.println("productId="+productId);
+		System.out.println(cart);
 		//新增一筆訂單明細
 		//每一個訂單有複數個訂單明細
 		OrderItemBean oItemBean =
-				new OrderItemBean(productId, name, quantity, unitPrice, discount);
+				new OrderItemBean(productId, name, 1, unitPrice, discount);
+		System.out.println("oItemBean="+oItemBean);
 		cart.addToCart(productId, oItemBean);
+		return "shoppingCart";
 	}
-	
 	
 	
 }
